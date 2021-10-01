@@ -8,7 +8,7 @@ namespace Lib
     // Подключаемся к базе данных.
     public class DataBase
     {
-        const string CONN_STR = "********************************************;";
+        const string CONN_STR = "***********************************;";
         private readonly MySqlConnection _db;
         private MySqlCommand _command;
         public DataBase()
@@ -49,12 +49,12 @@ AND table_product.id_supplier = table_supplier.id;";
             while (result.Read())
             {
                 var id = result.GetInt32("id");
-                var nameProduct = result.GetString("nameProduct");
-                var nameType = result.GetString("nameType");
-                var supplierProd = result.GetString("supplier");
-                var quantityProduct = result.GetString("quantity");
-                var costPriceProduct = result.GetInt32("costPrice");
-                var dateDeliveryProduct = result.GetDateTime("dateDelivery");
+                var nameProduct = result.GetString("name_product");
+                var nameType = result.GetString("type_product");
+                var supplierProd = result.GetString("name_suppliers");
+                var quantityProduct = result.GetString("quantity_product");
+                var costPriceProduct = result.GetInt32("costPrice_product");
+                var dateDeliveryProduct = result.GetDateTime("dateDelivery_product");
                 list.Add(new Product { Id = id, NameProduct = nameProduct, TypeProd = nameType, SupplierProd = supplierProd, QuantityProduct = quantityProduct, CostPriceProduct = costPriceProduct, DateDeliveryProduct = dateDeliveryProduct });
             }
             return list;
